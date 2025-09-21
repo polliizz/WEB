@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторна 1 — Створення бази для реєстрації</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    form {
+      background: var(--card);
+      padding: 16px;
+      border-radius: 8px;
+      max-width: 400px;
+      margin: 0 auto;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    label { display:block; margin-top:12px; }
+    input, select {
+      width:100%;
+      padding:8px;
+      margin-top:4px;
+      border:1px solid #ccc;
+      border-radius:4px;
+    }
+    input[type="submit"] {
+      background: var(--accent);
+      color:#fff;
+      border:none;
+      cursor:pointer;
+      margin-top:16px;
+    }
+    input[type="submit"]:hover {opacity:0.9;}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Лабораторна робота №1</h1>
+      <nav class="main-nav">
+        <a href="index.html#labs"> На головну</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Форма реєстрації</h2>
+
+      <form action="https://webhook.site/aac66f90-9db0-45a6-9e7c-bc27aee01391" method="post">
+        <label>Ім’я:
+          <input type="text" name="first_name" required>
+        </label>
+
+        <label>Прізвище:
+          <input type="text" name="last_name" required>
+        </label>
+
+        <label>Email:
+          <input type="email" name="email" required>
+        </label>
+
+        <label>Пароль:
+          <input type="password" name="password" required>
+        </label>
+
+        <label>Дата народження:
+          <input type="date" name="birth_date">
+        </label>
+
+        <label>Стать:
+          <select name="gender">
+            <option value="">Оберіть</option>
+            <option value="male">Чоловіча</option>
+            <option value="female">Жіноча</option>
+            <option value="other">Інше</option>
+          </select>
+        </label>
+
+        <input type="submit" value="Зареєструватися">
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+     
+    </div>
+</body>
+  </footer>
+</html>
