@@ -1,0 +1,93 @@
+li:first-child {
+  font-weight: bold;
+  color: #d6336c;
+}
+
+a:last-child {
+  color: #e91e63;
+  transition: color 0.3s ease;
+}
+
+input:disabled {
+  background-color: #f8bbd0;
+  border-color: #f48fb1;
+  color: #aaa;
+}
+
+div > p {
+  font-weight: 600;
+  color: #c2185b;
+}
+
+a[href^="https"] {
+  color: #ad1457;
+  font-weight: 600;
+}
+
+input[type="text"] {
+  border: 2px solid #ec407a;
+  border-radius: 6px;
+  padding: 8px;
+  transition: border-color 0.3s ease;
+}
+input[type="text"]:focus {
+  border-color: #f06292;
+  outline: none;
+}
+
+li:first-child,
+li:last-child {
+  font-size: 24px;
+  color: #d81b60;
+}
+
+div p {
+  font-size: 16px;
+  color: #880e4f;
+  line-height: 1.5;
+}
+
+input:checked {
+  background-color: #fce4ec;
+  border: 2px solid #ec407a;
+}
+
+li > a {
+  text-decoration: underline;
+  color: #d81b60;
+  transition: color 0.3s ease;
+}
+li > a:hover {
+  color: #f48fb1;
+}
+
+li:nth-child(even) {
+  font-weight: bold;
+  color: #ad1457;
+}
+
+input[type="text"]:not(:disabled) {
+  background-color: #fde4ec;
+}
+
+p:first-child {
+  font-size: 24px;
+  color: #c2185b;
+}
+
+.special + li {
+  text-decoration: line-through;
+  color: #f06292;
+}
+
+p::first-letter {
+  font-size: 36px;
+  color: #d81b60;
+  font-weight: bold;
+}
+
+a::after {
+  content: " -> ";
+  color: #ec407a;
+  font-weight: bold;
+}
