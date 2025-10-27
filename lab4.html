@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Тижневий планер</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:#2b2b2b;
+      --muted:#888;
+      --paper:#edb9d0;
+      --gap:14px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:20px;
+      font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background:#e7a1c7;
+      color:var(--accent);
+      -webkit-font-smoothing:antialiased;
+    }
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+      background:var(--paper);
+      border:2px solid #f4cbf1;
+      padding:18px;
+      display:grid;
+      grid-template-columns: 260px 1fr;
+      gap:var(--gap);
+      align-items:start;
+    }
+    .sidebar{
+      border-right:1px solid #e0e0e0;
+      padding-right:12px;
+    }
+    .title{
+      font-family: "Oswald", sans-serif;
+      font-size:36px;
+      letter-spacing:1px;
+      margin:2px 0 10px;
+    }
+    .section{
+      margin-bottom:18px;
+    }
+    .section h4{
+      font-size:12px;
+      color:var(--muted);
+      margin:6px 0;
+      text-transform:uppercase;
+      letter-spacing:0.06em;
+    }
+    .todo-list { display:flex; flex-direction:column; gap:8px; max-height:480px; overflow:auto; padding-right:6px;}
+    .todo-item{ display:flex; gap:8px; align-items:center; }
+    .todo-item input[type="checkbox"]{ width:18px; height:18px; }
+    .todo-item input[type="text"]{
+      border:0;
+      outline:0;
+      background:transparent;
+      border-bottom:1px dashed #eee;
+      padding:4px 6px;
+      width:100%;
+      font-size:14px;
+    }
+    .calendar{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 240px;
+      gap:var(--gap);
+      padding-left:12px;
+    }
+    .day{
+      border:1px solid #e2e2e2;
+      position:relative;
+      background:rgb(227, 105, 162);
+      display:flex;
+      flex-direction:column;
+    }
+    .day .day-head{
+      font-weight:700;
+      font-size:13px;
+      padding:8px 10px;
+      border-bottom:1px solid #f0f0f0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .day .content{
+      padding:10px;
+      flex:1;
+      overflow:auto;
+    }
+    .note{
+      display:block;
+      margin-bottom:8px;
+      padding:6px;
+      min-height:20px;
+      border-radius:4px;
+      border:1px dashed transparent;
+    }
+    .note[contenteditable]:focus{
+      outline:2px solid #f0f0f0;
+      border-color:#e6e6e6;
+      background:#fffdf6;
+    }
+
+    .tiny-chk{ display:flex; align-items:center; gap:6px; font-size:12px; color:var(--muted); }
+    .sunday{
+      grid-column: 3 / 4;
+      grid-row: 2 / 3;
+    }
+    @media (max-width:900px){
+      .container{ grid-template-columns: 1fr; }
+      .calendar{ grid-template-columns: repeat(2, 1fr); grid-auto-rows:200px; }
+      .sunday{ grid-column:auto; }
+    }
+    @media (max-width:560px){
+      .calendar{ grid-template-columns: 1fr; grid-auto-rows:180px; }
+      .title{ font-size:28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <aside class="sidebar">
+      <div class="title">WEEKLY PLAN</div>
+
+      <div class="section">
+    <h4>Top 3 Goals</h4>
+        <div class="todo-list">
+          <label class="todo-item"><input type="checkbox"></label>
+          <label class="todo-item"><input type="checkbox"></label>
+          <label class="todo-item"><input type="checkbox"></label>
+        </div>
+      </div>
+
+      <div class="section">
+        <h4>To do / Everything else</h4>
+        <div class="todo-list">
+          <label class="todo-item"><input type="checkbox"></label>
+          <label class="todo-item"><input type="checkbox"></label>
+          <label class="todo-item"><input type="checkbox"></label>
+          <label class="todo-item"><input type="checkbox"></label>
+          <label class="todo-item"><input type="checkbox"></label>
+          <label class="todo-item"><input type="checkbox"></label>
+          <label class="todo-item"><input type="checkbox"></label>
+        </div>
+      </div>
+
+      <div class="section">
+        <h4>Next week</h4>
+        <div class="todo-list">
+          <label class="todo-item"><input type="checkbox"></label>
+        </div>
+      </div>
+    </aside>
+
+    <main class="calendar">
+      <div class="day">
+        <div class="day-head">Monday <span class="tiny-chk"><input type="checkbox"></span></div>
+        <div class="content">
+          <div class="note" contenteditable="true" placeholder="Наприклад: робота, спорт..."> </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day-head">Tuesday <span class="tiny-chk"><input type="checkbox"></span></div>
+        <div class="content">
+          <div class="note" contenteditable="true"></div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day-head">Wednesday <span class="tiny-chk"><input type="checkbox"></span></div>
+        <div class="content">
+          <div class="note" contenteditable="true"></div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day-head">Thursday <span class="tiny-chk"><input type="checkbox"></span></div>
+        <div class="content">
+          <div class="note" contenteditable="true"></div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day-head">Friday <span class="tiny-chk"><input type="checkbox"></span></div>
+        <div class="content">
+          <div class="note" contenteditable="true"></div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day-head">Saturday <span class="tiny-chk"><input type="checkbox"></span></div>
+        <div class="content">
+          <div class="note" contenteditable="true"></div>
+        </div>
+      </div>
+
+      <div class="day sunday">
+        <div class="day-head">Sunday <span class="tiny-chk"><input type="checkbox"></span></div>
+        <div class="content">
+          <div class="note" contenteditable="true"></div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
