@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<title>Клавіатура</title>
+<style>
+body {
+  background: #e791ac;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.keyboard {
+  background: #f6d6e9;
+  padding: 25px 35px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  display: grid;
+  gap: 10px;
+  width: 1100px;
+}
+
+.row {
+  display: grid;
+  gap: 8px;
+}
+
+.fn   { grid-template-columns: repeat(14, 1fr); }
+.num  { grid-template-columns: repeat(15, 1fr); }
+.qrow { grid-template-columns: repeat(15, 1fr); }
+.arow { grid-template-columns: repeat(14, 1fr); }
+.zrow { grid-template-columns: repeat(13, 1fr); }
+.space{ grid-template-columns: 1.5fr 1fr 1fr 6fr 1fr 1.5fr; }
+
+.key {
+  background: #fefefe;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  text-align: center;
+  padding: 12px 0;
+  box-shadow: 0 3px 0 #aaa;
+  font-size: 14px;
+  transition: 0.1s;
+}
+
+.key:hover { background: #f8f8f8; transform: translateY(1px); }
+.key:active { background: #e0e0e0; box-shadow: none; transform: translateY(3px); }
+
+.wide2 { grid-column: span 2; }
+.wide3 { grid-column: span 3; }
+.wide4 { grid-column: span 4; }
+.spacebar { grid-column: span 4; }
+</style>
+</head>
+<body>
+
+<div class="keyboard">
+
+  <div class="row fn">
+    <div class="key">Esc</div>
+    <div class="key">F1</div><div class="key">F2</div><div class="key">F3</div><div class="key">F4</div>
+    <div class="key">F5</div><div class="key">F6</div><div class="key">F7</div><div class="key">F8</div>
+    <div class="key">F9</div><div class="key">F10</div><div class="key">F11</div><div class="key">F12</div>
+    <div class="key">PrtSc</div>
+  </div>
+
+  <div class="row num">
+    <div class="key">~</div><div class="key">1</div><div class="key">2</div><div class="key">3</div><div class="key">4</div>
+    <div class="key">5</div><div class="key">6</div><div class="key">7</div><div class="key">8</div><div class="key">9</div>
+    <div class="key">0</div><div class="key">-</div><div class="key">=</div><div class="key wide2">Backspace</div>
+  </div>
+
+  <div class="row qrow">
+    <div class="key wide2">Tab</div>
+    <div class="key">Q</div><div class="key">W</div><div class="key">E</div><div class="key">R</div><div class="key">T</div>
+    <div class="key">Y</div><div class="key">U</div><div class="key">I</div><div class="key">O</div><div class="key">P</div>
+    <div class="key">[</div><div class="key">]</div><div class="key">\</div>
+  </div>
+
+  <div class="row arow">
+    <div class="key">Caps</div><div class="key">A</div><div class="key">S</div><div class="key">D</div><div class="key">F</div><div class="key">G</div>
+    <div class="key">H</div><div class="key">J</div><div class="key">K</div><div class="key">L</div>
+    <div class="key">;</div><div class="key">'</div><div class="key wide2">Enter</div>
+  </div>
+
+  <div class="row zrow">
+    <div class="key wide2">Shift</div>
+    <div class="key">Z</div><div class="key">X</div><div class="key">C</div><div class="key">V</div><div class="key">B</div>
+    <div class="key">N</div><div class="key">M</div><div class="key">,</div><div class="key">.</div><div class="key">/</div>
+    <div class="key">Shift</div>
+  </div>
+
+  <div class="row space">
+    <div class="key">Ctrl</div>
+    <div class="key">Win</div>
+    <div class="key">Alt</div>
+    <div class="key">Space</div>
+    <div class="key">Alt</div>
+    <div class="key">Menu</div>
+  </div>
+
+</div>
+
+</body>
+</html>
