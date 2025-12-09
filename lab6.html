@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rubik:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:"Rubik",sans-serif;
+  background:#ffe6f2;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  color:#4a0039;
+}
+
+.wrapper{
+  width:100%;max-width:940px;
+  aspect-ratio:16/9;
+  background:#ffd6ea;
+  border:2px solid #ffb3d9;
+  border-radius:16px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 0 40px #ffb3d9;
+}
+
+.header{
+  padding:10px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#ffb3d9;
+  border-bottom:1px solid #ff99cc;
+}
+.header-title{
+  font-family:"Press Start 2P";
+  font-size:12px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:#4a0039;
+}
+.header-sub{font-size:10px;color:#4a0039;margin-top:3px}
+
+.btn{
+  padding:6px 14px;
+  border-radius:8px;
+  background:#ff99cc;
+  border:1px solid #ff66aa;
+  color:#4a0039;
+  font-size:11px;
+  cursor:pointer;
+}
+.btn:hover{background:#ff80bb}
+
+.scene{
+  position:relative;
+  flex:1;
+  overflow:hidden;
+  background:linear-gradient(to top,#ff99cc,#ff66aa,#ffb3d9);
+}
+
+/* Хмари */
+.cloud{
+  position:absolute;
+  top:18%;
+  width:120px;height:48px;
+  background:linear-gradient(to bottom,#ffe0f0,#ffcce0);
+  border-radius:60px;
+  filter:blur(1px);
+  opacity:.9;
+  animation:cloudFlow 45s linear infinite;
+}
+.cloud::before,.cloud::after{
+  content:"";position:absolute;background:inherit;border-radius:inherit;
+}
+.cloud::before{width:65%;height:60%;left:-15%;top:-15%}
+.cloud::after{width:55%;height:50%;right:-10%;top:-10%}
+
+.c1{left:-20%;top:20%;animation-delay:0s}
+.c2{left:40%;top:12%;transform:scale(.85);animation-delay:-15s}
+.c3{left:70%;top:28%;transform:scale(1.15);animation-delay:-30s}
+
+@keyframes cloudFlow{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(150%)}
+}
+
+/* Гори */
+.mountains{
+  position:absolute;
+  left:-10%;right:-10%;bottom:30%;height:42%;
+  background:
+    radial-gradient(circle at 20% 130%,#ffb6d9 0,#ff66aa 65%,transparent 70%),
+    radial-gradient(circle at 70% 140%,#ff99cc 0,#ff3388 65%,transparent 70%);
+  animation:mountMove 28s linear infinite;
+}
+@keyframes mountMove{0%{transform:translateX(0)}100%{transform:translateX(-6%)}}
+
+/* Земля */
+.ground{
+  position:absolute;inset:auto -10% 0;
+  height:34%;
+  background:
+    linear-gradient(to top,#ff66aa,#ff99cc 40%,transparent 90%),
+    repeating-linear-gradient(90deg,#ff66aa 0,#ff66aa 12px,#ff99cc 12px,#ff99cc 24px);
+  animation:groundMove 14s linear infinite;
+  border-radius:40% 40% 0 0 / 50% 50% 0 0;
+}
+@keyframes groundMove{
+  0%{background-position:0 0,0 0}
+  100%{background-position:0 0,-140px 0}
+}
+
+/* Стежка */
+.path{
+  position:absolute;left:-20%;right:-20%;bottom:10%;height:12%;
+  background:
+    radial-gradient(circle at 50% -40%,rgba(255,192,203,0.4),transparent 60%),
+    repeating-linear-gradient(90deg,#ff99cc 0,#ff99cc 10px,#ffb3d9 10px,#ffb3d9 20px);
+  border-radius:50%;
+  animation:pathScroll 11s linear infinite;
+}
+@keyframes pathScroll{
+  0%{background-position:0 0, 0 0}
+  100%{background-position:0 0,-160px 0}
+}
+
+/* Pokémon */
+.pokemon-box{
+  position:absolute;
+  bottom:18%;left:50%;transform:translateX(-50%);
+  z-index:5;
+  animation:runAcross 16s linear infinite alternate;
+  transform-origin:center bottom;
+}
+.pokemon{
+  width:96px;height:96px;
+  image-rendering:pixelated;
+  background-image:url("https://img.pokemondb.net/sprites/black-white/anim/normal/wigglytuff.gif");
+  background-position:0 0;
+  background-repeat:no-repeat;
+  animation:
+    spriteWalk .55s steps(4) infinite,
+    floatUpDown 2s ease-in-out infinite alternate,
+    tilt 4s ease-in-out infinite alternate;
+}
+@keyframes spriteWalk{
+  0%{background-position:0 0}
+  100%{background-position:-384px 0}
+}
+@keyframes floatUpDown{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-12px)}
+  100%{transform:translateY(0)}
+}
+@keyframes tilt{
+  0%{transform:rotate(0deg)}
+  50%{transform:rotate(5deg)}
+  100%{transform:rotate(0deg)}
+}
+
+.paused *, .paused::before{
+  animation-play-state:paused !important;
+}
+
+.info{
+  position:absolute;bottom:14px;left:14px;
+  background:#ffb3d9bb;
+  border:1px solid #ff99cc;
+  padding:10px 12px;
+  border-radius:10px;
+  font-size:11px;
+  max-width:240px;
+  backdrop-filter:blur(6px);
+  color:#4a0039;
+}
+.info strong{color:#ff3388}
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="header">
+    <button id="toggle" class="btn">Пауза</button>
+  </div>
+
+  <div class="scene" id="scene">
+    <div class="cloud c1"></div>
+    <div class="cloud c2"></div>
+    <div class="cloud c3"></div>
+
+    <div class="mountains"></div>
+    <div class="ground"></div>
+    <div class="path"></div>
+
+    <div class="pokemon-box"><div class="pokemon"></div></div>
+
+    
+
+<script>
+  const scene = document.getElementById('scene');
+  const toggle = document.getElementById('toggle');
+  let paused = false;
+
+  toggle.addEventListener('click', ()=>{
+    paused = !paused;
+    scene.classList.toggle('paused', paused);
+    toggle.textContent = paused ? "Старт" : "Пауза";
+  });
+</script>
+
+</body>
+</html>
